@@ -1,0 +1,328 @@
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: 10% 20% 20% 20% 20% 10%;
+}
+
+:root {
+    --highlight: #7bed9f;
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+
+p {
+    margin: 0;
+}
+
+/* .space-y > * + * {
+  margin-top: var(--space, 1rem);
+} */
+.current-call {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 2.5rem;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    /* background-color: rgb(116, 247, 138); */
+    border: 1px solid black;
+}
+
+.call-value {
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    font-weight: 800;
+    height: 100%;
+    width: 100%;
+    color: #eb4d4b;
+    /* background-color: green; */
+    font-size: 10rem;
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 3;
+    /* background-color: yellowgreen; */
+}
+
+.container {
+    z-index: 1;
+    position: relative;
+    width: 30rem;
+    height: 30rem;
+    padding: 2rem;
+}
+
+#contentToToggle {
+    position: relative;
+    grid-row: 2 / span 4;
+    height: 100%;
+    width: 100%;
+    background: rgb(210, 210, 210);
+    grid-column: 1 / span 2;
+}
+
+.bingo-pattern {
+    grid-row: 2 / span 4;
+
+    height: 100%;
+    width: 100%;
+
+    grid-column: 1 / span 2;
+    /*  */
+    display: grid;
+    grid-template-columns: 10% 10% 10% 20% 20% 10% 10% 10%;
+    grid-template-rows: 10% 10% 10% 20% 20% 10% 10% 10%;
+}
+
+.patternSelector {
+    font-size: 1.5rem;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 4;
+}
+
+#patternSelector {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 1 / span 1;
+    grid-column: 5 / span 2;
+}
+
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+}
+
+fieldset {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: max-content 1fr;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.slider>input {
+    flex-grow: 1;
+}
+
+.slider>output {
+    flex-shrink: 0;
+    min-width: 2rem;
+}
+
+.button-group {
+    grid-column: 1 / -1;
+}
+
+/* TOGGLE BUTTON  */
+#toggleButton {
+    /* height: 90%; */
+    /* width: 100%; */
+    grid-row: 1 / span 1;
+    margin-bottom: 20px;
+}
+
+#contentToToggle {
+    display: none;
+    /* Hide the content by default */
+}
+
+/* ============================= */
+
+.card-container {
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 16px;
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    grid-row: 2 / span 5;
+    grid-column: 3 / span 3;
+    /*  */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+/* ============= BINGO LETTERS ================ */
+.bingoLetters {
+    width: 100%;
+    height: 100%;
+    grid-row: 1;
+    grid-column: 3 / span 3;
+
+    /*  */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.letters-container {
+    grid-column: 3 / span 3;
+    grid-row: 1;
+    /*  */
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(5, 20%);
+}
+
+.letters-container h1:nth-child(1),
+.letters-container h1:nth-child(2),
+.letters-container h1:nth-child(3),
+.letters-container h1:nth-child(4),
+.letters-container h1:nth-child(5) {
+    width: 60%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: rgba(255, 255, 255, 0.25); */
+    /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
+
+    border-radius: 10px;
+    color: #000;
+}
+
+
+
+/* ============= BINGO PATTERN CARD ================ */
+
+.bingo-card {
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+}
+
+.bingo-cell {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    font-weight: bold;
+    color: white;
+}
+
+.highlight {
+    background: #54a0ff;
+    color: #54a0ff;
+}
+
+.pattern-container {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    grid-row: 3 / span 4;
+    grid-column: 2 / span 6;
+}
+
+/* ============= CALLER CARD ================ */
+
+.bingo-board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    height: 100%;
+    width: 100%;
+
+    background-color: rgba(0, 0, 0, 0.699);
+    /*  */
+    grid-column: 3 / span 3;
+    grid-row: 1 / span 5;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.number {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.drawn {
+    background-color: #e9f4e9;
+}
+
+.glow {
+    animation: glow 2s ease-out;
+}
+
+@keyframes glow {
+    0% {
+        background-color: var(--highlight);
+    }
+
+    50% {
+        background-color: var(--highlight);
+        box-shadow: 0 0 10px 5px var(--highlight);
+    }
+
+    100% {
+        background-color: var(--highlight);
+    }
+}
+
+.caller-btn {
+    grid-column: 1 / span 2;
+    /* justify-content: end; */
+    display: flex;
+    margin: 0 auto;
+    /* padding: 10px; */
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    height: fit-content;
+    /* width: 250px; */
+
+}
+
+.button-group {
+    grid-row: 5 / span 1;
+    /* background-color: red; */
+    grid-column: 1/span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* #draw {
+    grid-column: 1 / span 2;
+
+    grid-row: 4;
+}
+
+#reset {
+    grid-column: 1 / span 2;
+    grid-row: 5;
+} */

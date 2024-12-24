@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text to Speech</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/neumorphism-ui-v1.0.0/html&css/css/neumorphism.css">
+    <link rel="stylesheet" href="/neumorphism-ui-v1.0.0/html&css/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- TOGGLE CONFIGURATION -->
+    <!-- <button id="toggleButton" class="btn btn-primary fas fa-book-open"></button> -->
+    <button id="toggleButton" class="btn btn-primary mr-3" type="button">
+        <span class=""><span class="fas fa-cog"></span></span>
+    </button>
+
+    <div id="contentToToggle">
+        <!-- Your content goes here -->
+
+        <!-- CONTAINER FOR TEXT TO SPEECH -->
+        <div class="container space-y">
+            <h1>Web API - SpeechSynthesis</h1>
+            <p id="support" aria-live="polite"></p>
+
+            <fieldset>
+                <legend>Configuration</legend>
+
+                <!-- <label for="message">Message:</label>
+          <textarea name="message" id="message" rows="5">
+What is Beethoven doing now? Decomposing.</textarea
+          > -->
+
+                <label for="voice">Voice:</label>
+                <select name="voice" id="voice"></select>
+
+                <label for="rate">Rate:</label>
+                <div class="slider">
+                    <input name="rate" id="rate" type="range" min="0" max="10.0" step="0.1" value="1.0" />
+                    <output for="rate" aria-live="polite">1.0</output>
+                </div>
+
+                <label for="pitch">Pitch:</label>
+                <div class="slider">
+                    <input name="pitch" id="pitch" type="range" min="0" max="2.0" step="0.1" value="1.0" />
+                    <output for="pitch" aria-live="polite">1.0</output>
+                </div>
+
+                <label for="volume">Volume:</label>
+                <div class="slider">
+                    <input name="volume" id="volume" type="range" min="0" max="1.0" step="0.1" value="1.0" />
+                    <output for="volume" aria-live="polite">1.0</output>
+                </div>
+
+                <div class="button-group">
+                    <button id="start-stop">Start</button>
+                    <button id="pause-resume">Pause</button>
+                </div>
+
+                <p>Current word:</p>
+                <p id="current-word"></p>
+
+                <p>Elapsed Time:</p>
+                <p id="elapsed-time"></p>
+            </fieldset>
+        </div>
+    </div>
+
+    <!-- BINGO PATTTERN -->
+    <section class="bingo-pattern">
+        <label class="patternSelector" for="patternSelector">Choose a Bingo Pattern:</label>
+        <select id="patternSelector" onchange="updateBingoCard()">
+            <option value="horizontal">Horizontal Line</option>
+            <option value="vertical">Vertical Line</option>
+            <option value="diagonal">Diagonal Line</option>
+            <option value="fourCorners">Four Corners</option>
+            <option value="fullCard">Full Card</option>
+            <option value="letterT">Letter "T"</option>
+            <option value="letterX">Letter "X"</option>
+            <option value="postageStamp">Postage Stamp</option>
+            <option value="outsideFrame">Outside Frame</option>
+            <option value="insideFrame">Inside Frame</option>
+            <option value="diamond">Diamond</option>
+            <option value="pyramid">Pyramid</option>
+            <option value="arrow">Arrow</option>
+            <option value="topBottomLines">Top and Bottom Lines</option>
+            <option value="leftRightLines">Left and Right Lines</option>
+            <option value="doubleDiagonal">Double Diagonal</option>
+            <option value="heart">Heart</option>
+            <option value="cross">Cross</option>
+            <option value="rectangle">Rectangle</option>
+        </select>
+
+        <div class="pattern-container">
+            <div id="bingoCard" class="bingo-card">
+                <!-- Bingo card content will be added dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <div class="bingoLetters">
+        <div class="letters-container">
+            <h1>B</h1>
+            <h1>I</h1>
+            <h1>N</h1>
+            <h1>G</h1>
+            <h1>O</h1>
+        </div>
+    </div>
+
+    <!-- CALLER CARD CONTAINER -->
+    <section class="card-container">
+        <div class="current-call">CURRENT CALL:</div>
+        <div class="call-value"></div>
+
+        <!--  -->
+        <div id="bingoCallerSheet" class="bingo-board">
+
+            <div class="column" id="B"></div>
+            <div class="column" id="I"></div>
+            <div class="column" id="N"></div>
+            <div class="column" id="G"></div>
+            <div class="column" id="O"></div>
+        </div>
+        <div class="button-group">
+            <button id="draw" class="caller-btn btn btn-primary text-secondary" type="button">Draw</button>
+            <button id="reset" class="caller-btn btn btn-primary text-danger" type="button">Reset</button>
+        </div>
+    </section>
+
+    <!--  -->
+    <script src="script.js"></script>
+</body>
+
+</html>
