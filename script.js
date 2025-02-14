@@ -336,3 +336,46 @@ drawBtn.addEventListener("click", drawNumber);
 
 let resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", resetSheet);
+
+
+let drawInterval = null;
+
+function startAutoDraw() {
+    drawBtn.disabled = true;
+    drawInterval = setInterval(drawNumber, 5000);
+}
+
+function stopAutoDraw() {
+    clearInterval(drawInterval);
+    drawBtn.disabled = false;
+    drawInterval = null;
+}
+
+// Add auto-draw toggle button
+let autoDrawBtn = document.createElement('button');
+autoDrawBtn.textContent = 'Start Auto Draw';
+autoDrawBtn.addEventListener('click', function () {
+    if (drawInterval === null) {
+        startAutoDraw();
+        autoDrawBtn.textContent = 'Stop Auto Draw';
+    } else {
+        stopAutoDraw();
+        autoDrawBtn.textContent = 'Start Auto Draw';
+    }
+});
+
+// Insert the auto-draw button next to existing buttons
+drawBtn.parentNode.insertBefore(autoDrawBtn, resetBtn);
+
+// Update reset function to stop auto-draw
+function resetSheet() {
+    stopAutoDraw();
+    autoDrawBtn.textContent = 'Start Auto Draw';
+    currentCallVal.textContent = " ";
+    const board = document.getElementById("bingoCallerSheet");
+    letters.forEach((letter) => {
+        const column = document.getElementById(letter);
+        column.innerHTML = "";
+        drawnNumbers[letter] = [];
+    });
+}
